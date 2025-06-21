@@ -1,4 +1,4 @@
-# Playwright Test Automation for Dify
+# Automation of adding Dify administrators
 
 This project is a tool that uses the Playwright E2E test automation framework to automatically add administrator accounts to the Dify system.
 You can register administrators listed in admin_list.csv as Dify administrators.
