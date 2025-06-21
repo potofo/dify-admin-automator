@@ -1,0 +1,12 @@
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Environment variables
+.env
+admin_list.csv
+registration_url.csv
+remove_sql.txt
