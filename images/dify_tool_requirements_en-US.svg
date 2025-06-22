@@ -1,0 +1,152 @@
+<svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; }
+      .code { font-family: monospace; font-size: 10px; }
+      .header-bg { fill: #2563eb; }
+      .config-bg { fill: #f0f9ff; stroke: #2563eb; stroke-width: 2; }
+      .process-bg { fill: #ecfdf5; stroke: #059669; stroke-width: 2; }
+      .output-bg { fill: #fef3c7; stroke: #d97706; stroke-width: 2; }
+      .prereq-bg { fill: #f3e8ff; stroke: #7c3aed; stroke-width: 2; }
+      .arrow { stroke: #374151; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#ffffff"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="1200" height="60" class="header-bg"/>
+  <text x="600" y="35" class="title" fill="white">Dify Bulk Registration Tool Requirements &amp; Architecture</text>
+  
+  <!-- Configuration Section -->
+  <rect x="50" y="80" width="350" height="220" class="config-bg" rx="10"/>
+  <text x="225" y="105" class="subtitle" fill="#1e40af">Configuration File (.env)</text>
+  
+  <text x="70" y="130" class="code" fill="#374151">BASE_URL=http://localhost</text>
+  <text x="70" y="145" class="code" fill="#374151">OWNER_EMAIL=hogehoge@gmail.com</text>
+  <text x="70" y="160" class="code" fill="#374151">OWNER_PASSWORD=hogehoge</text>
+  <text x="70" y="175" class="code" fill="#374151">ADMIN_LISTCSV=admin_list.csv</text>
+  <text x="70" y="190" class="code" fill="#374151">ADMIN_PASSWORD=password</text>
+  <text x="70" y="205" class="code" fill="#374151">REGISTRATION_URL=registration_url.csv</text>
+  <text x="70" y="220" class="code" fill="#374151">REMOVE_SQL=remove_sql.txt</text>
+  
+  <text x="70" y="240" class="small-text" fill="#6b7280">※Default password used when admin list</text>
+  <text x="70" y="255" class="small-text" fill="#6b7280">password column is empty</text>
+  <text x="70" y="275" class="small-text" fill="#dc2626">※Only admin registration supported (owner excluded)</text>
+  
+  <!-- Input CSV Section -->
+  <rect x="50" y="320" width="350" height="150" class="config-bg" rx="10"/>
+  <text x="225" y="345" class="subtitle" fill="#1e40af">Input CSV (admin_list.csv)</text>
+  
+  <text x="70" y="370" class="code" fill="#374151">E-Mail,name,password</text>
+  <text x="70" y="385" class="code" fill="#374151">user1@gmail.com,User1,"user1_passwd"</text>
+  <text x="70" y="400" class="code" fill="#374151">user2@gmail.com,User2,"user2_passwd"</text>
+  
+  <text x="70" y="425" class="small-text" fill="#6b7280">Columns: E-Mail (email address)</text>
+  <text x="70" y="440" class="small-text" fill="#6b7280">         name (display name)</text>
+  <text x="70" y="455" class="small-text" fill="#6b7280">         password (user password)</text>
+  
+  <!-- Tool Process Section -->
+  <rect x="450" y="80" width="300" height="390" class="process-bg" rx="10"/>
+  <text x="600" y="105" class="subtitle" fill="#059669">Tool Process Flow</text>
+  
+  <!-- Process Steps -->
+  <rect x="470" y="120" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="140" class="text" text-anchor="middle" fill="#065f46">1. Load .env configuration</text>
+  
+  <rect x="470" y="160" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="180" class="text" text-anchor="middle" fill="#065f46">2. Load admin_list.csv</text>
+  
+  <rect x="470" y="200" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="220" class="text" text-anchor="middle" fill="#065f46">3. Login to Dify as owner</text>
+  
+  <rect x="470" y="240" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="260" class="text" text-anchor="middle" fill="#065f46">4. Generate admin invitation links</text>
+  
+  <rect x="470" y="280" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="300" class="text" text-anchor="middle" fill="#065f46">5. Access invitation links</text>
+  
+  <rect x="470" y="320" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="340" class="text" text-anchor="middle" fill="#065f46">6. Execute user registration</text>
+  
+  <rect x="470" y="360" width="260" height="30" fill="#d1fae5" stroke="#059669" rx="5"/>
+  <text x="600" y="380" class="text" text-anchor="middle" fill="#065f46">7. Generate output files</text>
+  
+  <text x="470" y="415" class="small-text" fill="#059669">Technologies used:</text>
+  <text x="470" y="430" class="small-text" fill="#059669">• Playwright (TypeScript)</text>
+  <text x="470" y="445" class="small-text" fill="#059669">• Web UI automation</text>
+  <text x="470" y="460" class="small-text" fill="#059669">• CSV I/O processing</text>
+  
+  <!-- Output Files Section -->
+  <rect x="800" y="80" width="350" height="270" class="output-bg" rx="10"/>
+  <text x="975" y="105" class="subtitle" fill="#d97706">Output Files</text>
+  
+  <!-- Registration URL CSV -->
+  <text x="820" y="130" class="text" fill="#92400e" font-weight="bold">registration_url.csv</text>
+  <text x="820" y="150" class="code" fill="#374151">E-Mail,registration_url</text>
+  <text x="820" y="165" class="code" fill="#374151">user1@gmail.com,http://localhost/activate...</text>
+  <text x="820" y="180" class="code" fill="#374151">user2@gmail.com,http://localhost/activate...</text>
+  
+  <!-- Remove SQL -->
+  <text x="820" y="210" class="text" fill="#92400e" font-weight="bold">remove_sql.txt</text>
+  <text x="820" y="230" class="code" fill="#374151">delete from accounts WHERE</text>
+  <text x="820" y="245" class="code" fill="#374151">  email = 'user1@gmail.com';</text>
+  <text x="820" y="260" class="code" fill="#374151">delete from accounts WHERE</text>
+  <text x="820" y="275" class="code" fill="#374151">  email = 'user2@gmail.com';</text>
+  
+  <text x="820" y="305" class="small-text" fill="#92400e">※SQL commands for user deletion</text>
+  <text x="820" y="320" class="small-text" fill="#92400e">in docker-db-1 container</text>
+  <text x="820" y="335" class="small-text" fill="#92400e">※Invitation links auto-saved</text>
+  
+  <!-- Prerequisites Section -->
+  <rect x="800" y="370" width="350" height="200" class="prereq-bg" rx="10"/>
+  <text x="975" y="395" class="subtitle" fill="#7c3aed">Prerequisites &amp; Environment</text>
+  
+  <text x="820" y="420" class="text" fill="#5b21b6">1. Windows 11</text>
+  <text x="820" y="435" class="text" fill="#5b21b6">2. Node.js (v22.14.0)</text>
+  <text x="820" y="450" class="text" fill="#5b21b6">3. npm (10.9.2)</text>
+  <text x="820" y="465" class="text" fill="#5b21b6">4. Playwright (10.9.2)</text>
+  <text x="820" y="480" class="text" fill="#5b21b6">5. Playwright msedge browser</text>
+  <text x="820" y="495" class="text" fill="#5b21b6">6. VSCode (1.101.1)</text>
+  <text x="820" y="510" class="text" fill="#5b21b6">7. Playwright Test for VSCode (1.1.15)</text>
+  <text x="820" y="525" class="text" fill="#5b21b6">8. Dify owner account</text>
+  
+  <text x="820" y="550" class="small-text" fill="#7c3aed">※VSCode and extension may not be mandatory</text>
+  
+  <!-- Bottom Section - Key Points -->
+  <rect x="50" y="590" width="1100" height="120" fill="#f9fafb" stroke="#d1d5db" stroke-width="1" rx="10"/>
+  <text x="600" y="615" class="subtitle" fill="#374151">Key Points</text>
+  
+  <text x="70" y="640" class="text" fill="#dc2626">• Risk mitigation: Safe registration via web UI instead of direct PostgreSQL operations</text>
+  <text x="70" y="655" class="text" fill="#dc2626">• Limitations: Only admin registration supported (viewers, editors, owners excluded)</text>
+  <text x="70" y="670" class="text" fill="#059669">• Automation scope: Invitation link generation → Access → User registration → Output files</text>
+  <text x="70" y="685" class="text" fill="#2563eb">• Management features: Individual password settings, auto SQL generation, invitation link storage</text>
+  
+  <!-- Arrows -->
+  <line x1="400" y1="190" x2="440" y2="190" class="arrow"/>
+  <line x1="400" y1="395" x2="440" y2="280" class="arrow"/>
+  <line x1="750" y1="250" x2="790" y2="250" class="arrow"/>
+  <line x1="750" y1="350" x2="790" y2="300" class="arrow"/>
+  
+  <!-- Process Flow Arrows -->
+  <line x1="600" y1="150" x2="600" y2="160" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="190" x2="600" y2="200" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="230" x2="600" y2="240" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="270" x2="600" y2="280" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="310" x2="600" y2="320" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="600" y1="350" x2="600" y2="360" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Technology Badge -->
+  <rect x="50" y="490" width="350" height="80" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" rx="10"/>
+  <text x="225" y="515" class="subtitle" fill="#1d4ed8">Development Background</text>
+  <text x="70" y="535" class="small-text" fill="#1e40af">Direct PostgreSQL operations are risky → Ensure safety via web UI</text>
+  <text x="70" y="550" class="small-text" fill="#1e40af">Automated browser operations using Playwright</text>
+  <text x="70" y="565" class="small-text" fill="#1e40af">Bulk processing implementation based on CSV</text>
+</svg>
