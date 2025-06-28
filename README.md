@@ -94,6 +94,15 @@ SQL commands for administrator account deletion are generated:
 delete from accounts WHERE email = 'user1@gmail.com';
 ```
 
+## Source Code Modification
+Around line 59 of AddAdmin2Dify.spec.ts, there is a line of code under "Sign in with an existing admin account" that currently works only if the account name used when creating the owner is "Dify".
+Therefore, the source code needs to be modified depending on the account name.
+For example, if the account name is "Automator Dify", the button name should be changed to 'A'.
+
+```
+await page.getByRole('button', { name: 'D', exact: true }).click();
+```
+
 ## Running Tests
 
 ### Basic Execution Methods

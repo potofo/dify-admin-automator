@@ -94,6 +94,16 @@ user1@gmail.com,http://localhost/activate?email=user1%40gmail.com&token=xxxxx
 delete from accounts WHERE email = 'user1@gmail.com';
 ```
 
+## ソースコードの修正
+「AddAdmin2Dify.spec.ts」の「既存の管理者アカウントでサインイン」59行目付近に以下のコードがあるが、
+これは、所有者を作成するときにアカウント名を「Dify」としたときに動作するコードのため、アカウント名によって
+ソースコードを修正する必要がある。
+例えば「Automator Dify」というアカウント名にした場合は'A'という文字のボタン名に変更する必要がある。
+
+```
+await page.getByRole('button', { name: 'D', exact: true }).click();
+```
+
 ## テストの実行
 
 ### 基本的な実行方法

@@ -53,6 +53,9 @@ test('test', async ({ page }) => {
     await page.getByRole('textbox', { name: 'メールアドレス' }).press('Tab');
     await page.getByRole('textbox', { name: 'パスワード パスワードをお忘れですか？' }).fill(process.env.OWNER_PASSWORD || '');
     await page.getByRole('textbox', { name: 'パスワード パスワードをお忘れですか？' }).press('Enter');
+    // サインイン後、アカウント設定画面に遷移するのを待つ
+    // ここでは'D'ボタンを待っているが、これはアカウント作成時に'Dify'という名前でアカウントを作成したため
+    // 'D'となっているアカウント名によって変更する必要があるので注意すること
     await page.getByRole('button', { name: 'D', exact: true }).click();
     // 管理者アプリの設定画面に移動
     await page.getByText('設定').click();
