@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import test from 'node:test';
 
 /**
  * Read environment variables from file.
@@ -47,3 +48,9 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
+
+// playwright.config.ts
+module.exports = {
+  testDir: './tests',
+  // その他の設定
+};
