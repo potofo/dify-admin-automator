@@ -32,12 +32,17 @@ cd dify-admin-automator
 npm install
 ```
 
-3. Playwrightブラウザのインストール:
+3. Playwright依存パッケージのインストール:
+```bash
+npx playwright install --with-deps
+```
+
+4. Playwrightブラウザのインストール:
 ```bash
 npx playwright install msedge
 ```
 
-4. 設定ファイルの準備:
+5. 設定ファイルの準備:
 ```bash
 cp .env.example .env
 cp admin_list.csv.example admin_list.csv

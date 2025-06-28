@@ -32,12 +32,17 @@ cd playwright
 npm install
 ```
 
-3. Install Playwright browser:
+3. Installing Playwright Dependencies:
+```bash
+npx playwright install --with-deps
+```
+
+4. Install Playwright browser:
 ```bash
 npx playwright install msedge
 ```
 
-4. Prepare configuration files:
+5. Prepare configuration files:
 ```bash
 cp .env.example .env
 cp admin_list.csv.example admin_list.csv
